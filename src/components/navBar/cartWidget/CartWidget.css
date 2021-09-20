@@ -1,0 +1,36 @@
+.cartButton{
+    text-decoration: none;
+    color: white !important;
+    margin-left: 1.5em;
+    margin-top: 0.5erm;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    
+
+}
+
+
+.cartButton i{
+    font-size: 1.5em;
+    order: 2;
+    
+}
+
+.cartButton span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-20%,-50%);
+    background-color: red;
+    padding: 0.3em;
+    
+}
+
+
+@media screen and(min-width: 991px){
+
+    .cartButton{
+        right: 0;
+    }
+}

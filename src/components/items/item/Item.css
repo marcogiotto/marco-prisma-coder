@@ -1,0 +1,47 @@
+.item-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1em !important;
+    
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    max-width: 350px;
+    border-radius: 10px;
+   
+}
+.btn-detalle {
+    order:2;
+    border-radius: 0!important;
+    border-left:0 !important;
+    border-right: 0!important;
+    border-top: 0 !important;
+}
+.item h2{
+    font-size: 1em;
+}
+
+.item >div{
+    order: 3;
+    padding: 0.5em 0;
+    width: 100%;
+    padding: 0.5em 0.5em 0 0.5em;
+    text-align: center;
+}
+/** IMPLEMENTAR CUANDO ESTE EL ITEMCOUNT **/
+.item > div {
+    min-height: 220px;
+}
+
+.item img{
+    order: 1;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+}

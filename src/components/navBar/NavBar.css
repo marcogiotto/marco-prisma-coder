@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: black;
+    padding: 0.5em 0;
+}
+.container{
+    position: relative;
+}
+.logo{
+    position: absolute;
+    text-decoration: none;
+    left: 1em;
+    top: 0.5rem;
+    z-index: 1;
+    
+}
+
+.logo h1{
+    color: white;
+    font-size: 2.2em;
+
+}
+
+.navbarNavDropdown{
+    order: 0;
+}
+

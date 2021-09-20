@@ -1,0 +1,11 @@
+.ItemList{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+   
+}
+
+ul{
+    padding-left: 0 !important;
+}

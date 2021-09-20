@@ -1,0 +1,9 @@
+.countItem-container p{
+    padding: 0.1em 2em;
+    border: 1px solid black;
+    margin: 0 0.5em;
+}
+
+.countItem-container div{
+    margin-bottom: 1em;
+}

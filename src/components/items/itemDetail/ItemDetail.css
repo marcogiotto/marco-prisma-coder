@@ -1,0 +1,46 @@
+.item-detail-container{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 2em 1em;
+}
+
+
+.item-detail-data h2{
+    text-align: left;
+    font-size: 2.8em;
+}
+
+.item-detail-data p{
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.2rem;
+}
+.item-detail-data ul{
+    margin: 2em 0 ;
+}
+.item-detail-data ul li{
+    list-style: none;
+    text-align: left;
+    padding: 0.5em 0;
+    font-size: 1.5em
+}
+
+.item-detail-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.item-con-stock{
+    padding: 0.2em 1.5em;
+    background-color:  black;
+    color: white;
+    border-radius: 5px;
+}
+
+.item-sin-stock{
+    padding: 0.2em 1.5em;
+    background-color:  red;
+    color: white;
+    border-radius: 5px;
+}
