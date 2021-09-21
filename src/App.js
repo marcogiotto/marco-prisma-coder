@@ -5,7 +5,8 @@ import Home from './views/Home';
 import Products from './views/Products';
 import ProductDetail from './views/ProductDetail';
 import Cart from './views/Cart';
-
+import { CartContext } from './context/CartContext';
+import { useState } from 'react';
 const categories = [
     {id: 1, name: "Hombres"},
     {id: 2, name: "Mujeres"},
@@ -13,9 +14,12 @@ const categories = [
 
 
 function App() {
-  
+  const [cart,setCart] = useState([]);
+
+
   return (
     <BrowserRouter> 
+      <CartContext.Provider value={cart}> 
         <NavBar categories={categories}/>
         <main>
         <Switch>
@@ -36,6 +40,7 @@ function App() {
            </Route>
        </Switch>
         </main>
+        </CartContext.Provider> 
     </BrowserRouter>
   );
 }

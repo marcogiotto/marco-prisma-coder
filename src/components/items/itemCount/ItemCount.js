@@ -59,7 +59,9 @@ const ItemCount = ({stock,initial,onAdd,onDelete}) => {
 
     const deleteItem = ()=> {
 
-        // onDelete();
+        if(onDelete){
+            onDelete();
+        } 
     }
 
     const showButton = () => {
