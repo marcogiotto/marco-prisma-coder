@@ -7,6 +7,7 @@ import ProductDetail from './views/ProductDetail';
 import Cart from './views/Cart';
 import { CartContext } from './context/CartContext';
 import { useState } from 'react';
+import { CartContextProvider } from './context/CartContext';
 const categories = [
     {id: 1, name: "Hombres"},
     {id: 2, name: "Mujeres"},
@@ -14,12 +15,9 @@ const categories = [
 
 
 function App() {
-  const [cart,setCart] = useState([]);
-
-
   return (
     <BrowserRouter> 
-      <CartContext.Provider value={cart}> 
+      <CartContextProvider> 
         <NavBar categories={categories}/>
         <main>
         <Switch>
@@ -40,7 +38,7 @@ function App() {
            </Route>
        </Switch>
         </main>
-        </CartContext.Provider> 
+        </CartContextProvider> 
     </BrowserRouter>
   );
 }

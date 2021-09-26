@@ -2,7 +2,7 @@ import './ItemCount.css';
 import { useState ,useEffect} from "react";
 
 
-const ItemCount = ({stock,initial,onAdd,onDelete}) => {
+const ItemCount = ({stock,initial,onAdd}) => {
 
     const [currentStock, setStock] = useState(stock);
     const [initialCount, setInitialCount] = useState(initial);
@@ -15,6 +15,7 @@ const ItemCount = ({stock,initial,onAdd,onDelete}) => {
         }
         if(currentStock < 1){
             setInitialCount(0);
+           
         }
     },[]);
 
@@ -57,21 +58,12 @@ const ItemCount = ({stock,initial,onAdd,onDelete}) => {
 
     }
 
-    const deleteItem = ()=> {
-
-        if(onDelete){
-            onDelete();
-        } 
-    }
 
     const showButton = () => {
 
         if( currentStock > 0){
-            if(initialCount < 1){
-                return <button className="btn btn-outline-danger" onClick={deleteItem}>Eliminar Item</button>;
-            }else{
                 return <button className="btn btn-outline-success" disabled={disabledButton} onClick={addCart} >Agregar Item</button>
-            }
+            
         }else{
             return <div className="alert alert-danger" role="alert">
                 No hay stock del producto.

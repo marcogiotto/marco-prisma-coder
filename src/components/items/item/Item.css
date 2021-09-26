@@ -37,7 +37,7 @@
 }
 /** IMPLEMENTAR CUANDO ESTE EL ITEMCOUNT **/
 .item > div {
-    min-height: 220px;
+    min-height: 170px;
 }
 
 .item img{

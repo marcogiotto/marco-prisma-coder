@@ -1,9 +1,24 @@
 import './NavBar.css';
+import { useContext, useEffect,useState } from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import CartWidget from './cartWidget/CartWidget';
-
+import CartContext from '../../context/CartContext';
 
 const NavBar = ({categories}) => {
+
+    const {cartItems} = useContext(CartContext);
+    const [cartItemsCount, setCartItemsCount] = useState(0); 
+    useEffect(() => {
+
+        if(cartItems.length > 0){
+            setCartItemsCount((prevState) => {
+                return cartItems.reduce((previousValue,currentValue) => previousValue + currentValue.quantity , 0);
+            });
+        }else{
+            setCartItemsCount(0);
+        }
+
+    },[cartItems]);
 
     return (
        <header >
@@ -42,7 +57,7 @@ const NavBar = ({categories}) => {
                       
                    
                </nav>
-               <CartWidget cartItems={0}/>
+               <CartWidget cartItems={cartItemsCount}/>
               
                 </div>
        </header>
