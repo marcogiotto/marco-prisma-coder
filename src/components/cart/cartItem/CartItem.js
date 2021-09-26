@@ -14,7 +14,7 @@ const CartItem = ({item,deleteItem}) => {
                 <td>{item.quantity}</td>
                 <td>$ {item.price}</td>
                 <td>$ {item.price * item.quantity}</td>
-                <td><button className="btn-danger btn btn-sm" onClick={itemDelete}><i class="bi bi-trash"></i></button></td>
+                <td><button className="btn-danger btn btn-sm" onClick={itemDelete}><i className="bi bi-trash"></i></button></td>
             </tr>
         </>
     );
