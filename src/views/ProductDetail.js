@@ -7,7 +7,7 @@ const ProductDetail = () => {
 
     return (
         <ItemDetailContainer productId={id}/>
-    )
+    );
 };
 
 export default ProductDetail;

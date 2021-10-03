@@ -1,89 +1,34 @@
 import { useState ,useEffect } from 'react';
-import ItemCount from "./itemCount/ItemCount";
 import ItemList from "./itemList/ItemList";
 import Loader from '../UI/loader/Loader';
-
-const productsList = [
-    {
-        id: 1,
-        name: 'Remera estampada',
-        description: 'Remera estampada de bugsbunny',
-        stock: 5,
-        imgUrl: '1m.png',
-        price: 1500,
-        categoryId: 2,
-    },
-    {
-        id: 2,
-        name: 'Remera estampada',
-        description: 'Remera estampada de los simpson.',
-        stock: 0,
-        imgUrl: '2m.png',
-        price: 1200,
-        categoryId: 2,
-    },
-    {
-        id: 3,
-        name: 'Trench',
-        description: 'Trench edision limitada color beige',
-        stock: 5,
-        imgUrl: '3m.png',
-        price: 2500,
-        categoryId: 2,
-    },
-    {
-        id: 4,
-        name: 'Remera Negra estampada',
-        description: 'Remera estampada de star wars',
-        stock: 5,
-        imgUrl: '2.png',
-        price: 1500,
-        categoryId: 1,
-    },
-    {
-        id: 5,
-        name: 'Remera blanca estampada',
-        description: 'Remera blanca estampada con coyote',
-        stock: 5,
-        imgUrl: '3.png',
-        price: 1800,
-        categoryId: 1,
-    },
-    {
-        id: 6,
-        name: 'Remera Negra',
-        description: 'Remera negra, temporada invierno 2021',
-        stock: 5,
-        imgUrl: '4.png',
-        price: 1700,
-        categoryId: 1,
-    }
-]
-
-const getProducts = () => {
-
-   
-    return new Promise((resolve,reject) => {
-        
-        setTimeout(()=> {
-                resolve(productsList);
-        },2000);
-    });
-};
+import {db} from '../../services/firebase';
+import {collection, getDocs, query, where} from 'firebase/firestore';
 
 const ItemListContainer = ({titulo,greeting,categoryId}) => {
     
     const [products,setProducts] = useState([]);
     
     useEffect(()=> {
-        getProducts().then(res => {
-           if(categoryId){
-               const category = res.filter(item => item.categoryId == categoryId);
-               setProducts(category);
-           }else{
-               setProducts(res);
-           }
-        });
+        if(!categoryId){
+            getDocs(collection(db,'Items')).then((querySnapshot) => {
+                const products = querySnapshot.docs.map(doc => {
+                    return {id: doc.id,...doc.data()}
+                });
+
+                setProducts(products);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }else{
+            getDocs(query(collection(db,'Items'), where('categoryId','==',categoryId))).then((querySnapshot)=> {
+                const products = querySnapshot.docs.map(doc => {
+                    return {id: doc.id,...doc.data()};
+                });
+                setProducts(products);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
         return () => {
             setProducts([]);
         }
