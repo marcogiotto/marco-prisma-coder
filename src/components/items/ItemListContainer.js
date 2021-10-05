@@ -1,37 +1,21 @@
 import { useState ,useEffect } from 'react';
 import ItemList from "./itemList/ItemList";
 import Loader from '../UI/loader/Loader';
-import {db} from '../../services/firebase';
-import {collection, getDocs, query, where} from 'firebase/firestore';
-
+import { getItems } from '../../services/firebase';
 const ItemListContainer = ({titulo,greeting,categoryId}) => {
     
     const [products,setProducts] = useState([]);
     
     useEffect(()=> {
-        if(!categoryId){
-            getDocs(collection(db,'Items')).then((querySnapshot) => {
-                const products = querySnapshot.docs.map(doc => {
-                    return {id: doc.id,...doc.data()}
-                });
-
-                setProducts(products);
-            }).catch((error) => {
+            getItems(categoryId).then(res => {
+                setProducts(res);
+            }).catch(error => {
                 console.log(error);
             });
-        }else{
-            getDocs(query(collection(db,'Items'), where('categoryId','==',categoryId))).then((querySnapshot)=> {
-                const products = querySnapshot.docs.map(doc => {
-                    return {id: doc.id,...doc.data()};
-                });
-                setProducts(products);
-            }).catch((error) => {
-                console.log(error);
-            });
-        }
+     
         return () => {
             setProducts([]);
-        }
+        };
     },[categoryId]);
 
    

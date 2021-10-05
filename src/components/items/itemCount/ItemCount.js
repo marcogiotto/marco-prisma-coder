@@ -10,14 +10,8 @@ const ItemCount = ({stock,initial,onAdd}) => {
     
     
     useEffect(() => {
-        if(initialCount < 1){
-            setInitialCount(1);
-        }
-        if(currentStock < 1){
-            setInitialCount(0);
-           
-        }
-    },[]);
+      setInitialCount(initial);
+    },[initial]);
 
     const addItem = () => {
 

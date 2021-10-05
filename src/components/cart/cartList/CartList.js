@@ -2,19 +2,10 @@ import { useContext } from "react";
 import CartContext from "../../../context/CartContext";
 import CartItem from "../cartItem/CartItem";
 import CartClearButton from "../cartClearButton/CartClearButton";
-const CartList = () => {
+import CartPlaceOrderButton from "../cartPlaceOrderButton/CartPlaceOrderButton";
+const CartList = ({getTotalAmount,cartItems,clearCart,deleteItemFromCart,placeOrder}) => {
 
-    const {clearCart,cartItems,removeItem} = useContext(CartContext);
-
-    const getTotalAmount = () => {
-
-        return cartItems.reduce((previousValue,currentValue) => previousValue + (currentValue.price * currentValue.quantity), 0);
-    }
-    const deleteItemFromCart = (itemId)=> {
-        removeItem(itemId);
-        
-            
-    }
+    
     return(
         <>
         <table className="table">
@@ -39,7 +30,10 @@ const CartList = () => {
             </tbody>
 
         </table>
+        <div className="row">
         <CartClearButton clearCart={clearCart}/>
+        <CartPlaceOrderButton placeOrder={placeOrder}/>
+        </div>
         </>
     );
 };

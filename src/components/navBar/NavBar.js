@@ -6,17 +6,11 @@ import CartContext from '../../context/CartContext';
 
 const NavBar = ({categories}) => {
 
-    const {cartItems} = useContext(CartContext);
-    const [cartItemsCount, setCartItemsCount] = useState(0); 
+    const {cartItems,getTotalItems} = useContext(CartContext);
+    const [cartItemsCount,setCartItemsCount] = useState(0);
+    
     useEffect(() => {
-
-        if(cartItems.length > 0){
-            setCartItemsCount((prevState) => {
-                return cartItems.reduce((previousValue,currentValue) => previousValue + currentValue.quantity , 0);
-            });
-        }else{
-            setCartItemsCount(0);
-        }
+        setCartItemsCount(getTotalItems());
 
     },[cartItems]);
 

@@ -9,7 +9,7 @@ const CartClearButton = ({clearCart}) => {
     }
 
     return(
-        <div className="text-center">
+        <div className="text-center col-sm-12 col-md-6">
             <button onClick={deleteCart} className="btn btn-danger">Vaciar carrito</button>
         </div>
     )

@@ -1,4 +1,4 @@
-import { useState,useContext } from 'react';
+import { useState,useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from '../itemCount/ItemCount';
@@ -7,7 +7,24 @@ const ItemDetail = ({item}) => {
     
     //const [itemCount,setItemCount] = useState(0);
     const [buttonCart,setButtonCart] = useState(false);
-    const {addItem} = useContext(CartContext);
+    const {addItem,getItem} = useContext(CartContext);
+    const [initialCount, setInitialCount] = useState(0);
+
+    useEffect(()=> {
+
+        const product = getItem(item.id);
+        console.log(product);
+        if(product.length > 0){
+           console.log(product[0].quantity);
+            setInitialCount(product[0].quantity);
+        }else{
+            setInitialCount(1);
+        }
+
+    },[]);
+
+
+
     const onAdd = (count) => {
 
         addItem(item,count);
@@ -37,7 +54,7 @@ const ItemDetail = ({item}) => {
                         </div>
                         <div className="col-sm-12 col-lg-6">
                             {!buttonCart ?
-                            <ItemCount initial={1} stock={item.stock} onAdd={onAdd}></ItemCount> :
+                            <ItemCount initial={initialCount} stock={item.stock} onAdd={onAdd}></ItemCount> :
                             <Link className="btn btn-success" to="/cart">Terminar compra</Link>}
                         </div>
                     </div>

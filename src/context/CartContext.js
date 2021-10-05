@@ -13,7 +13,7 @@ export  const CartContextProvider = ({children}) => {
                     return prevState.map(product => {
                         console.log(item.id,product.id);
                         if(product.id === item.id){
-                            product.quantity = product.quantity + quantity; 
+                            product.quantity =  quantity; 
                         }
                         return product;
 
@@ -34,16 +34,30 @@ export  const CartContextProvider = ({children}) => {
         });
     };
 
+    const getItem = (itemId) => {
+        return cartItems.filter(item => item.id === itemId);
+    };
     const clearCart = () =>{
 
         setCartItems([]);
 
     };
 
+    const getTotalItems = () => {
+        if(cartItems.length > 0){
+                return cartItems.reduce((previousValue,currentValue) => previousValue + currentValue.quantity , 0);
+        }
+        return 0;
+    };
+
+    const getTotalAmount = () => {
+
+        return cartItems.reduce((previousValue,currentValue) => previousValue + (currentValue.price * currentValue.quantity), 0);
+    };
 
 
     return (
-        <CartContext.Provider value={{addItem,removeItem,clearCart,cartItems}}>
+        <CartContext.Provider value={{addItem,removeItem,clearCart,cartItems,getTotalItems,getTotalAmount,getItem}}>
             {children}
         </CartContext.Provider>
     )
