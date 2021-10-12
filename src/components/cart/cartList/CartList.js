@@ -1,9 +1,8 @@
 import { useContext } from "react";
-import CartContext from "../../../context/CartContext";
+import { Link } from "react-router-dom";
 import CartItem from "../cartItem/CartItem";
 import CartClearButton from "../cartClearButton/CartClearButton";
-import CartPlaceOrderButton from "../cartPlaceOrderButton/CartPlaceOrderButton";
-const CartList = ({getTotalAmount,cartItems,clearCart,deleteItemFromCart,placeOrder}) => {
+const CartList = ({getTotalAmount,cartItems,clearCart,deleteItemFromCart}) => {
 
     
     return(
@@ -32,7 +31,10 @@ const CartList = ({getTotalAmount,cartItems,clearCart,deleteItemFromCart,placeOr
         </table>
         <div className="row">
         <CartClearButton clearCart={clearCart}/>
-        <CartPlaceOrderButton placeOrder={placeOrder}/>
+        <div className="text-center col-sm-12 col-md-6">
+             <Link to='/checkout' className="btn btn-lg btn-success">Realizar Compra</Link>
+        </div>
+       
         </div>
         </>
     );

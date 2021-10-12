@@ -1,10 +1,13 @@
+import { useContext } from "react";
+import MessageContext from "../../../context/MessageContext";
 
 const CartClearButton = ({clearCart}) => {
-
+    const {setMessages} = useContext(MessageContext);
     const deleteCart = () => {
 
         if(window.confirm('Esta seguro que quiere vaciar el carrito ?')){
             clearCart();
+            setMessages('success','Se vació el carrito correctamente.');
         }
     }
 

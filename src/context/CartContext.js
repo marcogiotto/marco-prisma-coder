@@ -1,10 +1,12 @@
-import { createContext, useState} from "react";
+import { createContext, useContext, useState} from "react";
+import MessageContext from "./MessageContext";
 
 const CartContext = createContext([]);
 
 
 export  const CartContextProvider = ({children}) => {
     const [cartItems, setCartItems] = useState([]);
+    const {setMessages} = useContext(MessageContext);
 
 
     const addItem = (item,quantity) =>{
@@ -25,6 +27,8 @@ export  const CartContextProvider = ({children}) => {
                 }
                
             });
+
+        setMessages('success',`Se agrego el producto ${item.name} al carrito.`);
     };
 
     const removeItem = (itemId) =>{
@@ -32,6 +36,7 @@ export  const CartContextProvider = ({children}) => {
         setCartItems((prevState) => {
             return prevState.filter(product => product.id !== itemId);
         });
+        setMessages('success',`Se quito el producto del carrito.`);
     };
 
     const getItem = (itemId) => {
@@ -40,6 +45,7 @@ export  const CartContextProvider = ({children}) => {
     const clearCart = () =>{
 
         setCartItems([]);
+        
 
     };
 

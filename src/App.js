@@ -5,8 +5,11 @@ import Home from './views/Home';
 import Products from './views/Products';
 import ProductDetail from './views/ProductDetail';
 import Cart from './views/Cart';
+import Message from './components/message/Message';
+import CheckOut from './views/CheckOut';
 import { useState, useEffect } from 'react';
 import { CartContextProvider } from './context/CartContext';
+import { MessageContextProvider } from './context/MessageContext';
 import {db} from './services/firebase';
 import { collection, query, getDocs } from '@firebase/firestore';
 
@@ -27,8 +30,11 @@ function App() {
 
       return (
       <BrowserRouter> 
+             <MessageContextProvider> 
             <CartContextProvider> 
+                
             <NavBar categories={categories}/>
+            <Message/>
             <main>
             <Switch>
             <Route exact path="/">
@@ -44,11 +50,17 @@ function App() {
                   <Products categories={categories}></Products>
             </Route>
             <Route path="/cart">
-                        <Cart></Cart>
+                  <Cart></Cart>
+            </Route>
+            <Route path="/checkout">
+                  <CheckOut></CheckOut>
             </Route>
             </Switch>
             </main>
+           
+           
             </CartContextProvider> 
+            </MessageContextProvider>
       </BrowserRouter>
       );
 }

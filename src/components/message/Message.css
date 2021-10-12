@@ -1,0 +1,19 @@
+.error-message{
+    background-color: red !important;
+    color: white;
+}
+
+.success-message {
+    background-color: green !important;
+    color: white;
+}
+
+.toast{
+    width: 100% !important;
+}
+
+.toast  > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
