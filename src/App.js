@@ -12,7 +12,8 @@ import { CartContextProvider } from './context/CartContext';
 import { MessageContextProvider } from './context/MessageContext';
 import {db} from './services/firebase';
 import { collection, query, getDocs } from '@firebase/firestore';
-
+import PrivateRoute from './components/privateRoute/PrivateRoute';
+import NotFound from './views/NotFound';
 
 
 function App() {
@@ -52,8 +53,11 @@ function App() {
             <Route path="/cart">
                   <Cart></Cart>
             </Route>
-            <Route path="/checkout">
+            <PrivateRoute path="/checkout">
                   <CheckOut></CheckOut>
+            </PrivateRoute>
+            <Route path="*">
+                 <NotFound></NotFound>
             </Route>
             </Switch>
             </main>
