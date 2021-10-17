@@ -11,19 +11,24 @@ const ItemDetail = ({item}) => {
     const [initialCount, setInitialCount] = useState(0);
 
     useEffect(()=> {
-        
-        const product = getItem(item.id);
-        if(product.length > 0){
-           
-            setInitialCount(product[0].quantity);
-        }else{
-            setInitialCount(1);
+       
+        if(item){
+            const product = getItem(item.id);
+            if(product.length > 0){
+               
+                setInitialCount(product[0].quantity);
+            }else{
+                setInitialCount(1);
+            }
         }
+        
 
     },[]);
 
-
-
+    const productNotFound = () => {
+        return <h2>{'El producto no existe.'}</h2>
+    }
+   
     const onAdd = (count) => {
 
         addItem(item,count);
@@ -31,7 +36,9 @@ const ItemDetail = ({item}) => {
     }
     return(
             <>
-            <div className=" row item-detail-container">
+            {
+                item ?
+                <div className=" row item-detail-container">
                 <div className="col-sm-12 col-md-6 item-detail-img">
                     <img src={`/imgs/${item.imgUrl}`} alt={item.name} />
                 </div>
@@ -58,7 +65,11 @@ const ItemDetail = ({item}) => {
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>    :
+                productNotFound()
+
+            }
+            
             </>
     );
 }

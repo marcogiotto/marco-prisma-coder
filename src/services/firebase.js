@@ -62,11 +62,12 @@ export const getItemById = (itemId) => {
     
    return new Promise((resolve,reject) => {
         getDoc(doc(db,'Items',itemId)).then((querySnapshot) => {
-            const itemArray = [];
-            const item = {id : querySnapshot.id,...querySnapshot.data()};
-            itemArray.push(item);
-            
-            resolve(itemArray);
+            let item = undefined;
+            if(querySnapshot.data()){
+               item = {id : querySnapshot.id,...querySnapshot.data()};
+            }
+
+            resolve(item);
             }).catch((error) => {
                 reject('No se pudo listar el producto.' + error);
             });
