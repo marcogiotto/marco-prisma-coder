@@ -26,6 +26,13 @@ const CheckOutForm = ({makePayment}) => {
        
     };
 
+    const formValid = () =>{
+
+        if(email && emailConfirmation && direction && phone && name){
+            return false;
+        }
+        return true;
+    }
 
     return(
         <>
@@ -54,7 +61,7 @@ const CheckOutForm = ({makePayment}) => {
                     
                 </div>
                <div className=" d-flex justify-content-end">
-                <button type="submit" className="btn btn-lg btn-success">Pagar</button>
+                <button type="submit" disabled={formValid()} className="btn btn-lg btn-success">Pagar</button>
                </div>
             </form>
         </>
