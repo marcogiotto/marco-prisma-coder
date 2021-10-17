@@ -7,11 +7,11 @@ const ItemListContainer = ({titulo,greeting,categoryId}) => {
     
     const [products,setProducts] = useState([]);
     const {setMessages} = useContext(MessageContext);
-    
+
     useEffect(()=> {
             getItems(categoryId).then(res => {
                 setProducts(res);
-            }).catch(error => {
+            }).catch((error) => {
                 setMessages(error);
             });
      
