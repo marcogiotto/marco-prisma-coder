@@ -45,9 +45,9 @@ const CheckOutContainer = () => {
         })
 
         if(outOfStock.length < 1){
-            addDoc(collection(db,'Orders'),ObjOrder).then(()=> {
-                batch.commit().then(()=> {
-                    setMessages('success','La compra se proceso correctamente.');
+            addDoc(collection(db,'Orders'),ObjOrder).then((res)=> {
+                batch.commit().then(()=> {        
+                    setMessages('success',`La compra se proceso correctamente. Su numero de orden es : ${res.id} ` );
                 }).catch((error)=> {
                     setMessages('error','Ocurrió un error. Vuelva a intentar nuevamente mas tarde');
                 }).finally(()=> {

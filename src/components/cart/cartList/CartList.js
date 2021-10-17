@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../cartItem/CartItem";
 import CartClearButton from "../cartClearButton/CartClearButton";
@@ -32,7 +31,7 @@ const CartList = ({getTotalAmount,cartItems,clearCart,deleteItemFromCart}) => {
         <div className="row">
         <CartClearButton clearCart={clearCart}/>
         <div className="text-center col-sm-12 col-md-6">
-             <Link to='/checkout' className="btn btn-lg btn-success">Realizar Compra</Link>
+             <Link to='/checkout' className="btn  btn-success">Realizar Compra</Link>
         </div>
        
         </div>

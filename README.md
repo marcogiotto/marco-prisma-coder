@@ -1,78 +1,59 @@
 # Prisma shop
 
 Prisma shop es una tienda online de ropa para hombre y mujeres.
-En este proyecto implemente la libreria de estilos css bootstrap para poder facilitar la estilización y el desarrollo mobile de la pagina. Tambien incluí bootstrap icons para poder implementar iconografía en la pagina de una forma mucho mas rapida y unificada.
-
 ![Prisma shop gif](https://github.com/marcogiotto/prisma-coder/blob/master/public/gif/prisma-shop.gif)
 
+# Estructuración del proyecto
 
-# Getting Started with Create React App
+En este proyecto se agruparon dentro del src por un lado la carpeta componentes , la carpeta context, la carpeta ui , la carpeta services y la carpeta views.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Carpeta Components
+La carpeta components contiene todos los componentes que contienen lógica del proyecto. Dentro de esta se encuentran en primer nivel las carpetas contenedoras de los componentes segun su funcionalidad. ej: Cart/CartListContainer | Cart/CartList.
+Algun componentes que necesitaron estilización extra , cuentan con su correspondiente archivo .css dentro de la misma carpeta donde esta el componente.
 
-## Available Scripts
+## Carpeta Context
+Esta carpeta contiene el cartContext y MessageContext. 
 
-In the project directory, you can run:
+En el cartContext se encuentra la lógica del carrito de compras (eliminar,obtenerTotal,vaciarCarrito,etc).
+
+En el MessageContext se encuentra la lógica de los mensajes o alertas de la aplicación para informar al usuario si se realizó la acción con éxito o si ocurrió algun error.
+
+## Carpeta UI
+Esta carpeta contiene componenetes que carecen de toda lógica y son simplemente esteticos. En este caso solo encontraran un componenete Loader.
+
+## Carpeta Service
+Esta carpeta contiene gran parte de la lógica y funcionalidades de la integración de firebase, como traer productos de la base de datos y traer categorias. 
+
+
+## Carpeta View
+En esta carpeta encontraron cada una de la vistas/paginas del sitio (productos/home/carrito/checkout/categorias);
+
+
+# Librerias para estilos utilizadas
+
+En este proyecto implemente la libreria de estilos css  [bootstrap](https://getbootstrap.com/) para poder facilitar la estilización y el desarrollo mobile de la pagina. Tambien incluí [bootstrap Icons](https://icons.getbootstrap.com/) para poder implementar iconografía en la pagina de una forma mucho mas rapida y unificada.
+
+
+
+
+# Como descargar y levantar el proyecto
+
+## Descargar el proyecto
+Para descargar el proyecto debes clonar el repositorio. 
+
+Realizando el comando git clone https://github.com/marcogiotto/marco-prisma-coder.git
+
+## Levantar el proyecto
+
+### `npm install`
+Ejecuta este comando para instalar todas las dependencias del proyecto.
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Levanta la aplicacion en entorno de desarrollo.\
+En [http://localhost:3000](http://localhost:3000) para ver el poryecto en el explorador.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+La pagina se va a recargar si realizas algun cambio y 
+podras ver si hay algun error en las alertas de la consola.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

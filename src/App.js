@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 import { CartContextProvider } from './context/CartContext';
 import { MessageContextProvider } from './context/MessageContext';
 import {db} from './services/firebase';
-import { collection, query, getDocs } from '@firebase/firestore';
+import { collection, getDocs } from '@firebase/firestore';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import NotFound from './views/NotFound';
 

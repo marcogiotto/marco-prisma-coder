@@ -5,7 +5,7 @@ import ItemCount from '../itemCount/ItemCount';
 import CartContext from '../../../context/CartContext';
 const ItemDetail = ({item}) => {
     
-    //const [itemCount,setItemCount] = useState(0);
+    
     const [buttonCart,setButtonCart] = useState(false);
     const {addItem,getItem} = useContext(CartContext);
     const [initialCount, setInitialCount] = useState(0);
@@ -13,7 +13,6 @@ const ItemDetail = ({item}) => {
     useEffect(()=> {
 
         const product = getItem(item.id);
-        console.log(product);
         if(product.length > 0){
            console.log(product[0].quantity);
             setInitialCount(product[0].quantity);
