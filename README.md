@@ -1,7 +1,7 @@
 # Prisma shop
 
 Prisma shop es una tienda online de ropa para hombre y mujeres.
-![Prisma shop gif](https://github.com/marcogiotto/prisma-coder/blob/master/public/gif/prisma-shop.gif)
+![Prisma shop gif](https://github.com/marcogiotto/marco-prisma-coder/blob/master/public/gif/prisma-shop.gif)
 
 # Estructuración del proyecto
 
