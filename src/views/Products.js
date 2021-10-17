@@ -9,7 +9,7 @@ const Products = ({categories}) => {
     
     useEffect(()=> {
         if(categoryId && categories.length > 0){
-            const category = categories.find(cat => cat.id == categoryId);
+            const category = categories.find(cat => cat.id === categoryId);
             setTitle(category.name);
         }
         return () => {

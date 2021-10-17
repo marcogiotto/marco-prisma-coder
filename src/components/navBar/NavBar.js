@@ -33,7 +33,7 @@ const NavBar = ({categories}) => {
                            <NavLink className="nav-link" exact activeClassName="active" aria-current="page" to="/products">Productos</NavLink>
                            </li>
                            <li className="nav-item dropdown">
-                           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           <a className="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                Categorías
                            </a>
                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

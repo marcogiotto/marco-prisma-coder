@@ -11,10 +11,10 @@ const ItemDetail = ({item}) => {
     const [initialCount, setInitialCount] = useState(0);
 
     useEffect(()=> {
-
+        
         const product = getItem(item.id);
         if(product.length > 0){
-          
+           
             setInitialCount(product[0].quantity);
         }else{
             setInitialCount(1);

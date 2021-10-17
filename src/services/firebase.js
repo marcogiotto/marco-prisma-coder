@@ -28,8 +28,8 @@ export const getCategories = () => {
             });
             resolve(categories);
             
-      }).catch(error => {
-          reject('No se pudo obtner las categorias.');
+      }).catch((error) => {
+          reject('No se pudo obtner las categorias.' + error);
       })
     })
 }
@@ -50,7 +50,7 @@ export const getItems = (categoryId) => {
             });
             resolve(products);
         }).catch((error) => {
-            reject('No se pudieron listar los prodcutos. ' + error);
+            reject('No se pudieron listar los prodcutos.' + error);
         });
         });
     
@@ -60,7 +60,7 @@ export const getItems = (categoryId) => {
 
 export const getItemById = (itemId) => {
     
-    const item = new Promise((resolve,reject) => {
+   return new Promise((resolve,reject) => {
         getDoc(doc(db,'Items',itemId)).then((querySnapshot) => {
             const itemArray = [];
             const item = {id : querySnapshot.id,...querySnapshot.data()};
@@ -68,8 +68,8 @@ export const getItemById = (itemId) => {
             
             resolve(itemArray);
             }).catch((error) => {
-                reject('No se pudo listar el producto. ' + error);
+                reject('No se pudo listar el producto.' + error);
             });
     });
-    return item;
+    
 }

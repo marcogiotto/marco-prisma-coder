@@ -10,24 +10,29 @@ const ItemDetailContainer = ({productId}) => {
 
     const [item, setItem] = useState([]);
     const {setMessages} = useContext(MessageContext);
-    
+    const [loading, setLoading] = useState(false);
     useEffect(()=> {
+        setLoading(true);
         getItemById(productId).then(res => {
+           
             setItem(res);
         }).catch((error) => {
             setMessages(error);
+        }).finally(() => {
+            setLoading(false);
         });
 
         return () => {
+            setLoading(true);
             setItem([]);
         };
     },[productId]);
-
+    
     return (
         <section className="container my-5 py-5 text-center">
                 {
-                        item.length > 0 ?
-                        item.map((res)=> <ItemDetail item={res} key={res.name}/>) :
+                        !loading ?
+                         item.map(item => <ItemDetail item={item} key={item.name} />) :
                         <Loader/>
                 }
         </section>

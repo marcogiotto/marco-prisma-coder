@@ -58,9 +58,11 @@ const CheckOutContainer = () => {
             })
         }else{
             let itemsName = '';
-            outOfStock.map(item => {
-                itemsName+= ' ' + item.name;
-            });
+            
+            for(let i = 0; i < outOfStock.length ; i++){
+                itemsName += outOfStock[i].name;
+            }
+        
             setMessages('error', `Los siguentes productos no cuentan con stock : ${itemsName} . Debe eliminarlos del carrito para realizar la compra. `)
             history.push('/cart');
         }
