@@ -26,6 +26,7 @@ const CheckOutForm = ({makePayment}) => {
        
     };
 
+
     const formValid = () =>{
 
         if(email && emailConfirmation && direction && phone && name){
@@ -39,12 +40,12 @@ const CheckOutForm = ({makePayment}) => {
             <form onSubmit={handlerSubmit} >
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Nombre completo</label>
-                    <input type="text"  required  className="form-control" id="name" name="name" value={name} onInput={(e) => setName(e.target.value)} aria-describedby="emailHelp"/>
+                    <input type="text"  required  className="form-control" id="name" name="name"  value={name} onInput={(e) => setName(e.target.value)} aria-describedby="emailHelp"/>
             
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email</label>
-                    <input type="email"  required className="form-control" name="email" value={email} onInput={(e) => setEmail(e.target.value)} id="email"/>
+                    <input type="email"  required className="form-control" name="email" value={email}  onInput={(e) => setEmail(e.target.value)} id="email"/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Confirmar Email</label>
@@ -52,7 +53,7 @@ const CheckOutForm = ({makePayment}) => {
                 </div>
                 <div className="mb-3 ">
                     <label className="form-label" htmlFor="phone">Teléfono</label>
-                    <input type="tel" required  className="form-control" id="phone" name="phone" value={phone} onInput={(e) => setPhone(e.target.value)}/>
+                    <input type="tel" required pattern="[0-9]{10}" title="El numero de telefono debe tener 10 digitos y ser numericos"  className="form-control" id="phone" name="phone" value={phone} onInput={(e) => setPhone(e.target.value)}/>
                     
                 </div>
                 <div className="mb-3 ">
