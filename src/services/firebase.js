@@ -19,6 +19,21 @@ export const getFirebaes = () => {
 export const db = getFirestore(app);
 
 
+export const getCategories = () => {
+
+    return new Promise((resolve,reject) => {
+        getDocs(collection(db,'Categories')).then((querySnapshot) => {
+            const categories = querySnapshot.docs.map(doc => {
+                  return {id: doc.id,...doc.data()};
+            });
+            resolve(categories);
+            
+      }).catch(error => {
+          reject('No se pudo obtner las categorias.');
+      })
+    })
+}
+
 
 export const getItems = (categoryId) => {
  
@@ -35,7 +50,7 @@ export const getItems = (categoryId) => {
             });
             resolve(products);
         }).catch((error) => {
-            reject(error);
+            reject('No se pudieron listar los prodcutos. ' + error);
         });
         });
     
@@ -53,7 +68,7 @@ export const getItemById = (itemId) => {
             
             resolve(itemArray);
             }).catch((error) => {
-                reject(error);
+                reject('No se pudo listar el producto. ' + error);
             });
     });
     return item;

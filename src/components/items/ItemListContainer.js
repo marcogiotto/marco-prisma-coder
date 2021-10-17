@@ -1,16 +1,18 @@
-import { useState ,useEffect } from 'react';
+import { useState ,useEffect, useContext } from 'react';
 import ItemList from "./itemList/ItemList";
 import Loader from '../UI/loader/Loader';
 import { getItems } from '../../services/firebase';
+import MessageContext from '../../context/MessageContext';
 const ItemListContainer = ({titulo,greeting,categoryId}) => {
     
     const [products,setProducts] = useState([]);
+    const {setMessages} = useContext(MessageContext);
     
     useEffect(()=> {
             getItems(categoryId).then(res => {
                 setProducts(res);
             }).catch(error => {
-                console.log(error);
+                setMessages(error);
             });
      
         return () => {

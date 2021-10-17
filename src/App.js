@@ -7,25 +7,23 @@ import ProductDetail from './views/ProductDetail';
 import Cart from './views/Cart';
 import Message from './components/message/Message';
 import CheckOut from './views/CheckOut';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { CartContextProvider } from './context/CartContext';
-import { MessageContextProvider } from './context/MessageContext';
-import {db} from './services/firebase';
-import { collection, getDocs } from '@firebase/firestore';
+import MessageContext, { MessageContextProvider } from './context/MessageContext';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import NotFound from './views/NotFound';
-
+import { getCategories } from './services/firebase';
 
 function App() {
       
       const [categories, setCategories] = useState([]);
-
+      const {setMessages} = useContext(MessageContext);
+      
       useEffect(() => {
-            getDocs(collection(db,'Categories')).then((querySnapshot) => {
-                  const categories = querySnapshot.docs.map(doc => {
-                        return {id: doc.id,...doc.data()};
-                  });
-                  setCategories(categories);
+            getCategories().then(res => {
+                  setCategories(res);
+            }).catch(error => {
+                  setMessages('error',error);
             })
       },[]);
 

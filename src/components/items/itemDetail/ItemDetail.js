@@ -14,7 +14,7 @@ const ItemDetail = ({item}) => {
 
         const product = getItem(item.id);
         if(product.length > 0){
-           console.log(product[0].quantity);
+          
             setInitialCount(product[0].quantity);
         }else{
             setInitialCount(1);
