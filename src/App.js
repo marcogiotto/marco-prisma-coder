@@ -18,7 +18,7 @@ function App() {
       
       const [categories, setCategories] = useState([]);
       const {setMessages} = useContext(MessageContext);
-      
+
       useEffect(() => {
             getCategories().then(res => {
                   setCategories(res);
@@ -45,7 +45,7 @@ function App() {
             <Route path="/product/:id">
                   <ProductDetail></ProductDetail>
             </Route>
-            <Route path="/category/:categoryId">
+            <Route path="/category/:id">
                   <Products categories={categories}></Products>
             </Route>
             <Route path="/cart">

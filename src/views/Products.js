@@ -5,17 +5,20 @@ import ItemListContainer from "../components/items/ItemListContainer";
 const Products = ({categories}) => {
 
     const [title, setTitle] = useState('Prisma shop');
-    const {categoryId} = useParams();
+    const [categoryId, setCategoryId] = useState('');
+    const {id} = useParams();
     
     useEffect(()=> {
-        if(categoryId && categories.length > 0){
-            const category = categories.find(cat => cat.id === categoryId);
-            setTitle(category.name);
+        if(id && categories.length > 0){
+            const category = categories.find(cat => cat.key === id);
+            setTitle(category.description);
+            setCategoryId(category.id);
         }
         return () => {
             setTitle('Prisma shop');
+            setCategoryId('');
         }
-    },[categoryId]); 
+    },[id]); 
     
     return(
             <>  

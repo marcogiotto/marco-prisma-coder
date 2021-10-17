@@ -37,7 +37,7 @@ const NavBar = ({categories}) => {
                                Categorías
                            </a>
                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                               {categories.map(item => <li key={item.name} ><Link  className="dropdown-item" to={`/category/${item.id}`}>{item.name}</Link></li>)}
+                               {categories.map(item => <li key={item.key} ><Link  className="dropdown-item" to={`/category/${item.key}`}>{item.description}</Link></li>)}
                                
                            </ul>
                            </li>
