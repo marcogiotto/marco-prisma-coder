@@ -17,7 +17,7 @@ const CartList = ({getTotalAmount,cartItems,clearCart,deleteItemFromCart}) => {
                 </tr>
             </thead>
             <tbody>
-                {cartItems.map(item => <CartItem key={item.name} deleteItem={deleteItemFromCart} item={item}/>)}
+                {cartItems.map(item => <CartItem key={item.id} deleteItem={deleteItemFromCart} item={item}/>)}
                 <tr style={{background: 'lightgray'}}>
                     <th>Total</th>
                     <th></th>

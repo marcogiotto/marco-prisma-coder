@@ -17,7 +17,7 @@ const ItemDetailContainer = ({productId}) => {
            
             setItem(res);
         }).catch((error) => {
-            setMessages(error);
+            setMessages('error',error);
         }).finally(() => {
             setLoading(false);
         });

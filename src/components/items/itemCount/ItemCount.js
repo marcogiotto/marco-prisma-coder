@@ -4,14 +4,20 @@ import { useState ,useEffect} from "react";
 
 const ItemCount = ({stock,initial,onAdd}) => {
 
-    const [currentStock, setStock] = useState(stock);
-    const [initialCount, setInitialCount] = useState(initial);
+    const [currentStock, setStock] = useState(0);
+    const [initialCount, setInitialCount] = useState(0);
     const [disabledButton, setDisabledButton] = useState(false);
     
     
     useEffect(() => {
       setInitialCount(initial);
-    },[initial]);
+      setStock(stock);
+        
+      return () => {
+          setInitialCount(0);
+          setStock(0);
+      }
+    },[initial,stock]);
 
     const addItem = () => {
 

@@ -7,12 +7,16 @@ const ItemListContainer = ({titulo,greeting,categoryId}) => {
     
     const [products,setProducts] = useState([]);
     const {setMessages} = useContext(MessageContext);
+    const [loading, setLoading] = useState(false);
 
     useEffect(()=> {
+            setLoading(true);
             getItems(categoryId).then(res => {
                 setProducts(res);
             }).catch((error) => {
-                setMessages(error);
+                setMessages('error',error);
+            }).finally(() => {
+                setLoading(false);
             });
      
         return () => {
@@ -29,7 +33,7 @@ const ItemListContainer = ({titulo,greeting,categoryId}) => {
                     <h2>{titulo}</h2>
                     <p>{greeting}</p>
                     {
-                        products.length > 0 ?
+                        !loading?
                         <ItemList products={products}/> :
                         <Loader/>
 

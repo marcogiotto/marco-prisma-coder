@@ -23,7 +23,9 @@ const ItemDetail = ({item}) => {
         }
         
 
-    },[]);
+    },[item]);
+
+   
 
     const productNotFound = () => {
         return <h2>{'El producto no existe.'}</h2>

@@ -6,13 +6,13 @@ import CartContext from '../../context/CartContext';
 
 const NavBar = ({categories}) => {
 
-    const {cartItems,getTotalItems} = useContext(CartContext);
+    const {getTotalItems} = useContext(CartContext);
     const [cartItemsCount,setCartItemsCount] = useState(0);
     
     useEffect(() => {
         setCartItemsCount(getTotalItems());
 
-    },[cartItems]);
+    },[getTotalItems]);
 
     return (
        <header >

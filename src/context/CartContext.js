@@ -13,7 +13,7 @@ export  const CartContextProvider = ({children}) => {
             setCartItems((prevState)=> {
                 if(prevState.filter(product => product.id === item.id).length > 0){
                     return prevState.map(product => {
-                        console.log(item.id,product.id);
+                       
                         if(product.id === item.id){
                             product.quantity =  quantity; 
                         }
