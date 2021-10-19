@@ -3,7 +3,7 @@ import { useContext, useEffect,useState } from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import CartWidget from './cartWidget/CartWidget';
 import CartContext from '../../context/CartContext';
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
 const NavBar = ({categories}) => {
 
     const {getTotalItems} = useContext(CartContext);
@@ -12,7 +12,7 @@ const NavBar = ({categories}) => {
     useEffect(() => {
         setCartItemsCount(getTotalItems());
 
-    },[getTotalItems]);
+    },[getTotalItems]); 
 
     return (
        <header >
@@ -35,14 +35,14 @@ const NavBar = ({categories}) => {
                            <li className="nav-item dropdown">
                            <a className="nav-link dropdown-toggle" href="#"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                Categorías
-                           </a>
+                           </a> 
                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                {categories.map(item => <li key={item.key} ><Link  className="dropdown-item" to={`/category/${item.key}`}>{item.description}</Link></li>)}
                                
                            </ul>
-                           </li>
+                           </li> 
                            
-                           
+                          
                        </ul>
                        </div>
                       

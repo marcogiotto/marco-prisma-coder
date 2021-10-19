@@ -25,7 +25,7 @@ function App() {
             }).catch(error => {
                   setMessages('error',error);
             })
-      },[]);
+      },[]);// eslint-disable-line react-hooks/exhaustive-deps
 
       return (
       <BrowserRouter> 

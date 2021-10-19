@@ -22,7 +22,7 @@ const ItemListContainer = ({titulo,greeting,categoryId}) => {
         return () => {
             setProducts([]);
         };
-    },[categoryId]);
+    },[categoryId]);// eslint-disable-line react-hooks/exhaustive-deps
 
    
 

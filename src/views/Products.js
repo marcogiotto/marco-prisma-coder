@@ -18,7 +18,7 @@ const Products = ({categories}) => {
             setTitle('Prisma shop');
             setCategoryId('');
         }
-    },[id]); 
+    },[id]); // eslint-disable-line react-hooks/exhaustive-deps
     
     return(
             <>  

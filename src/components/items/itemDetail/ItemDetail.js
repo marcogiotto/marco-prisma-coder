@@ -23,7 +23,7 @@ const ItemDetail = ({item}) => {
         }
         
 
-    },[item]);
+    },[item]);// eslint-disable-line react-hooks/exhaustive-deps
 
    
 

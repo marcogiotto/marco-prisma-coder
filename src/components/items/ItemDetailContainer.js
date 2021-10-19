@@ -26,7 +26,7 @@ const ItemDetailContainer = ({productId}) => {
             setLoading(true);
             setItem([]);
         };
-    },[productId]);
+    },[productId]);// eslint-disable-line react-hooks/exhaustive-deps
     
     return (
         <section className="container my-5 py-5 text-center">
